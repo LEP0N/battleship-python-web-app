@@ -1,0 +1,92 @@
+{% macro print_ship_dots(total, destroyed) -%}
+    {% for i in range(total) %}
+        {% if i < destroyed %}
+            <img src="../static/assets/Hit%20small.png" height="16" width="16">
+        {% else %}
+            <img src="../static/assets/Miss%20small.png"height="16" width="16">
+        {% endif %} 
+    {% endfor %}
+{%- endmacro %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Battleship</title>
+        <link href="../static/styles.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+
+        <header>
+            <section class="flat">
+                <a href="/restart">
+                    <button>
+                        <span class="restart-text">restart</span>
+                    </button>
+                </a>
+            </section>
+        </header>
+
+        <div class="page">
+            <div class="left-group">
+                <div class="scoreboard">
+                    <p>
+                        <span class="score-text">{{ move }}</span>
+                    </p>
+                    <div class="line"></div>
+                    <p>
+                        <span class="player-text">player</span>
+                    </p>
+                </div>
+                <div class="ships">
+                    <div class="ship-img">
+                        <img src="../static/assets/Aircraft%20Shape.png" alt="Aircraft" width="180" height="48"/>
+                        <div>{{ print_ship_dots(5, 5 - ships["Aircraft"]|length) }}</div>
+                    </div>
+                    <div class="ship-img">
+                        <img src="../static/assets/Battleship%20Shape.png" alt="Battleship" width="180" height="48"/>
+                        <div>{{ print_ship_dots(4, 4 - ships["Battleship"]|length) }}</div>
+                    </div>
+                    <div class="ship-img">
+                        <img src="../static/assets/Cruiser%20Shape.png" alt="Cruiser" width="180" height="48"/>
+                        <div>{{ print_ship_dots(3, 3 - ships["Cruiser"]|length) }}</div>
+                    </div>
+                    <div class="ship-img">
+                        <img src="../static/assets/Submarine%20Shape.png" alt="Submarine" width="180" height="48"/>
+                        <div>{{ print_ship_dots(3, 3 - ships["Submarine"]|length) }}</div>
+                    </div>
+                    <div class="ship-img">
+                        <img src="../static/assets/Carrier%20Shape.png" alt="Carrier" width="240" height="64"/>
+                        <div>{{ print_ship_dots(2, 2 - ships["Carrier"]|length) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="battle-field">
+                {% for row in range(0, grid|length) %}
+                    <div class="battle-field-row">
+                        {% for column in range(0, grid[row]|length) %}
+                            {% if alive_ships == 0 or grid[row][column] == cell.miss_cell or grid[row][column] == cell.damaged_cell %}
+                                <div class="battle-field-cell">
+                                    {% if grid[row][column] == cell.miss_cell %}
+                                        <img src="../static/assets/Miss.png" alt="Miss" height="48" width="48"/>
+                                    {% elif grid[row][column] == cell.damaged_cell %}
+                                        <img src="../static/assets/Hit.png" alt="Hit" height="48" width="48"/>
+                                    {% else %}
+                                        {{ grid[row][column] }}
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <a class="battle-field-cell" href="/fire?rowIndex={{ row }}&columnIndex={{ column }}">
+                                    {{ grid[row][column] }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+</html>

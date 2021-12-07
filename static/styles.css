@@ -1,0 +1,123 @@
+header {
+    display: flex;
+    align-items: center;
+    background: #9494ff;
+    height: 60px;
+    margin-bottom: 40px;
+}
+
+.restart-text {
+    font-family: sans-serif;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: -1px 1px #5a5a5a;
+}
+
+section.flat button {
+    background-color: #7878b7;
+    border: none;
+    height: 40px;
+    width: 100px;
+    margin-left: 30px;
+}
+
+section.flat button:hover,
+section.flat button.hover {
+    background-color: #6767b7;
+}
+
+section.flat button:active,
+section.flat button.active {
+    background-color: #5858b7;
+}
+
+.page {
+    display: flex;
+    justify-content: space-around;
+}
+
+body {
+    margin: 0;
+}
+
+.battle-field {
+    width: fit-content;
+    border: 6px solid #ffb000;
+    background: #f8f8f8;
+    height: fit-content;
+}
+
+.battle-field-row {
+    display: flex;
+    border-bottom: 2px solid #8a8a8a;
+}
+
+.battle-field-row:last-child {
+    border-bottom: none;
+}
+
+.battle-field-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-right: 2px solid #8a8a8a;
+    color: #333333;
+    text-decoration: none;
+}
+
+.battle-field-cell:last-child {
+    border-right: none;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    background: #29b79f;
+    border: 1px solid #8a8a8a;
+    margin-bottom: 15px;
+}
+
+.score-text {
+    color: #4a4a4a;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.line {
+    border-bottom: 1px solid #4a4a4a;
+    width: 170px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.player-text {
+    color: #4a4a4a;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.ships {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ship-img {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.left-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

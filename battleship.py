@@ -1,13 +1,7 @@
 from random import choice, randint
 from PSQL_DB import PSQL_DB_Worker
 import uuid
-
-
-host = "127.0.0.1"
-user = "lep0n"
-password = ""
-db = "battleship"
-port = 5432
+import db_config
 
 worker = PSQL_DB_Worker(host, user, password, db, port)
 

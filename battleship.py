@@ -3,7 +3,11 @@ from PSQL_DB import PSQL_DB_Worker
 import uuid
 import db_config
 
-worker = PSQL_DB_Worker(host, user, password, db, port)
+worker = PSQL_DB_Worker(db_config.host,
+                        db_config.user,
+                        db_config.password,
+                        db_config.db,
+                        db_config.port)
 
 
 class Ship:

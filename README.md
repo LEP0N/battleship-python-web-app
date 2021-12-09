@@ -6,3 +6,6 @@ user = ""
 password = ""  
 db = "battleship"  
 port = 5432. 
+
+You can test it on:  
+http://45.140.170.211:5000
